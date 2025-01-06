@@ -1,7 +1,7 @@
 package com.example.llm.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,8 +14,9 @@ public class ChatController {
     @Autowired
     private AIAssistant assistant;
     
-    @GetMapping("/chat")
+    @PostMapping("/api/chat")
     public String getChat(@RequestBody UserInput userInput) {
-        return assistant.chat(userInput.getMessage(), userInput.getInformation());
+        return assistant.chat(userInput.getMessage());
     }
+
 }
