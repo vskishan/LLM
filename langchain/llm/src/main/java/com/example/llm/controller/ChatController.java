@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.llm.model.PersonInfo;
 import com.example.llm.model.UserInput;
 import com.example.llm.service.AIAssistant;
 
@@ -16,7 +17,8 @@ public class ChatController {
     
     @PostMapping("/api/chat")
     public String getChat(@RequestBody UserInput userInput) {
-        return assistant.chat(userInput.getMessage());
+        PersonInfo info = assistant.chat(userInput.getMessage());
+        return "Giving info related to " + info;
     }
 
 }

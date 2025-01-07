@@ -1,5 +1,7 @@
 package com.example.llm.service;
 
+import com.example.llm.model.PersonInfo;
+
 import dev.langchain4j.service.SystemMessage;
 import dev.langchain4j.service.UserMessage;
 import dev.langchain4j.service.spring.AiService;
@@ -8,6 +10,6 @@ import dev.langchain4j.service.spring.AiService;
 public interface AIAssistant {
 
     @SystemMessage("Give responses after scraping the information")
-    String chat(@UserMessage String userMessage);
+    PersonInfo chat(@UserMessage String userMessage);
     
 }
